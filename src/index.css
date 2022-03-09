@@ -1,13 +1,135 @@
-body {
+*,
+*::before,
+*::after {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all .5s;
+}
+span,a,input,button {
+  display: inline-block;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* sidebar */
+.sidebar {
+  display: none;
+}
+ 
+.sidebar-logo__link {
+  color: #40a9ff;
+  font-weight: bold;
+  font-size: 27px;
+}
+.sidebar-logo__link:hover {
+  color: #0071bd;
+}
+.sidebar-item__link {
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  margin-bottom: 25px;
+}
+.sidebar-item__text {
+  margin-left: 10px;
+  font-size: 1rem;
+  transition: all .5s;
+}
+.sidebar__icon {
+  font-size: 1.3rem !important;
+}
+.sidebar-item__link:hover .sidebar-item__text{
+  color: #0071bd;
+}
+.sidebar-item__link:hover .sidebar__icon {
+  color: #fff;
+}
+
+
+/* mobile menu */
+.mobile-menu {
+  position: relative;
+  display: block;
+  padding: 15px 20px;
+  background-color: rgb(0, 21, 41);
+}
+.mobile-menu__logo-text {
+  margin-left: 10px !important;
+}
+.mobile-menu__nav {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  left:0;
+  bottom: 0;
+  background:transparent;
+  display: flex;
+  justify-content: flex-end;
+}
+.mobile-menu__list {
+  padding-top: 50px;
+  width: 400px;
+  background-color: #0c1a32;
+  list-style: none;
+  text-align: center;
+}
+.mobile-menu__item {
+  margin-bottom: 20px;
+}
+.mobile-menu__link {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.65);
+  display: block;
+}
+.mobile-menu__text {
+  margin-left: 10px;
+}
+.mobile-menu__icon {
+  font-size: 1.6rem !important;
+}
+.mobile-menu__link:hover .mobile-menu__text{
+  color: #0071bd;
+}
+.mobile-menu__link:hover .mobile-menu__icon {
+  color: #fff;
+}
+
+/* hamburger */
+.hamburger {
+  cursor: pointer;
+}
+.hamburger__line {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+/* crypto list */
+.crypto-list, .latest-news {
+  margin-top: 50px;
+}
+
+.s {
+  color: #1c29415d;
+}
+
+ 
+/* media queries */
+@media(min-width: 810px){
+  .sidebar {
+    display: block;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .app {
+    margin-left: 320px;
+  }
 }

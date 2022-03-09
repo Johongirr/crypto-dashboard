@@ -1,25 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Sidebar from "./components/Sidebar/Sidebar";
+import MobileMenu from "./components/MobileMenu/MobileMenu";
+import Crypto from "./components/Crypto/Crypto";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { styled } from "@mui/system";
+import Home from "./pages/Home/Home";
+import Cryptocurrencies from "./pages/Cryptocurrencies/Cryptocurrencies";
+import Exchanges from "./pages/Exchanges/Exchanges";
+import News from "./pages/News/News";
+
+const AppBox = styled("main")({
+  padding: "30px 15px",
+  backgroundColor: "#0c1a32",
+  backgroundColor: "#20304c",
+  minHeight: "100vh",
+  color: "#fff",
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <MobileMenu />
+      <Sidebar />
+      <AppBox className="app">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
+          <Route path="/exchanges" element={<Exchanges />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/cryptocurrencies/:cryptoId" element={<Crypto />} />
+        </Routes>
+      </AppBox>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+/**
+ *  App
+ *    MobileMenu
+ *    Sidebar
+ *      SidebarLogo
+ *      SidebarItem
+ *    Home
+ *      CryptoStats
+ *      CryptoList
+ *        CryptoItem
+ *      LatestCryptoNewsList
+ *        LatestCryptoNewsItem
+ *     Cryptocurrencies
+ *        SearchCrypto
+ *        CryptoList
+ *          CryptoItem
+ *     Exchanges
+ *     News
+ *        NewsFilter
+ *        LatestCryptoNewsList
+ *          LatestCryptoNewsItem
+ *
+ *   Algorithm
+ *  1. Create Components folder and files in it (DONE)
+ *  2. Build layout
+ *  3. Get data from API and display it in home page
+ *
+ *
+ */
