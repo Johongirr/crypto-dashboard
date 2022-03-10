@@ -13,7 +13,6 @@ import axios from "axios";
 function Home() {
   const [cryptoCurrencies, setCryptoCurrencies] = useState(null);
   const [news, setNews] = useState([]);
-  const [isUserOnline, setIsUserOnline] = useState(false);
 
   useEffect(() => {
     const getCoins = (coins) => {
@@ -25,16 +24,10 @@ function Home() {
 
     fetchCoins("https://coinranking1.p.rapidapi.com/coins", getCoins, 10);
     getLatestCryptoNews(getNews);
-  }, [isUserOnline]);
+  }, []);
 
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
-      <Detector
-        render={({ online }) => {
-          online ? setIsUserOnline(true) : setIsUserOnline(false);
-          return <p></p>;
-        }}
-      />
       {cryptoCurrencies ? (
         <>
           <CryptoStats stats={cryptoCurrencies.stats} />
@@ -42,20 +35,15 @@ function Home() {
           {/* <LatestCryptoNewsList news={news} /> */}
         </>
       ) : (
-        <>
-          <Online>
-            <CircularProgress
-              sx={{
-                position: "absolute",
-                top: { xs: "35%", sm: "40%" },
-                left: { xs: "40%", sm: "50%" },
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            top: { xs: "35%", sm: "40%" },
+            left: { xs: "40%", sm: "50%" },
 
-                transform: "translate(-50%, -50%)",
-              }}
-            />
-          </Online>
-          <OfflineUser />
-        </>
+            transform: "translate(-50%, -50%)",
+          }}
+        />
       )}
     </div>
   );

@@ -23,12 +23,6 @@ function Cryptocurrencies() {
 
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
-      <Detector
-        render={({ online }) => {
-          online ? setIsUserOnline(true) : setIsUserOnline(false);
-          return <p></p>;
-        }}
-      />
       <Typography
         variant="h4"
         sx={{
@@ -46,46 +40,15 @@ function Cryptocurrencies() {
           cryptoCurrencyPage
         />
       ) : (
-        <>
-          <Online>
-            <CircularProgress
-              sx={{
-                position: "absolute",
-                top: { xs: "35%", sm: "40%" },
-                left: { xs: "40%", sm: "50%" },
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            top: { xs: "35%", sm: "40%" },
+            left: { xs: "40%", sm: "50%" },
 
-                transform: "translate(-50%, -50%)",
-              }}
-            />
-          </Online>
-          <Offline>
-            <>
-              <Box
-                sx={{
-                  position: "absolute",
-                  top: { xs: "35%", sm: "40%" },
-                  left: { xs: "40%", sm: "50%" },
-                  transform: "translate(-50%, -50%)",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "20px",
-                }}
-              >
-                <Typography variant="h4">
-                  You are offline, pleease try again later
-                </Typography>
-                <Button
-                  variant="contained"
-                  onClick={() => window.location.reload()}
-                  size="large"
-                >
-                  Retry
-                </Button>
-              </Box>
-            </>
-          </Offline>
-        </>
+            transform: "translate(-50%, -50%)",
+          }}
+        />
       )}
     </div>
   );

@@ -22,12 +22,6 @@ function News() {
 
   return (
     <div className="news" style={{ position: "relative", minHeight: "100vh" }}>
-      <Detector
-        render={({ online }) => {
-          online ? setIsUserOnline(true) : setIsUserOnline(false);
-          return <p></p>;
-        }}
-      />
       <Typography
         variant="h4"
         sx={{ fontSize: { xs: "1.8rem", sm: "2.5rem" } }}
@@ -38,22 +32,15 @@ function News() {
       {news ? (
         <LatestCryptoNewsList newsPage news={news} />
       ) : (
-        <>
-          <Online>
-            <CircularProgress
-              sx={{
-                position: "absolute",
-                top: { xs: "35%", sm: "40%" },
-                left: { xs: "40%", sm: "50%" },
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            top: { xs: "35%", sm: "40%" },
+            left: { xs: "40%", sm: "50%" },
 
-                transform: "translate(-50%, -50%)",
-              }}
-            />
-          </Online>
-          <Box sx={{ position: "relative", top: "250px" }}>
-            <OfflineUser />
-          </Box>
-        </>
+            transform: "translate(-50%, -50%)",
+          }}
+        />
       )}
     </div>
   );

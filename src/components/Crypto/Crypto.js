@@ -46,12 +46,6 @@ function Crypto() {
       className="crypto"
       style={{ position: "relative", padding: "0 25px", minHeight: "100vh" }}
     >
-      <Detector
-        render={({ online }) => {
-          online ? setIsUserOnline(true) : setIsUserOnline(false);
-          return <p></p>;
-        }}
-      />
       {coin && coinHistory ? (
         <>
           <CryptoHeader coin={coin} />
@@ -70,20 +64,15 @@ function Crypto() {
           />
         </>
       ) : (
-        <>
-          <Online>
-            <CircularProgress
-              sx={{
-                position: "absolute",
-                top: { xs: "35%", sm: "40%" },
-                left: { xs: "40%", sm: "50%" },
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            top: { xs: "35%", sm: "40%" },
+            left: { xs: "40%", sm: "50%" },
 
-                transform: "translate(-50%, -50%)",
-              }}
-            />
-          </Online>
-          <OfflineUser />
-        </>
+            transform: "translate(-50%, -50%)",
+          }}
+        />
       )}
     </div>
   );
