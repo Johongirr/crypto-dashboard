@@ -12,8 +12,8 @@ export const fetchCoins = (url, method, limit = "50") => {
       offset: "0",
     },
     headers: {
-      "x-rapidapi-host": "coinranking1.p.rapidapi.com",
-      "x-rapidapi-key": "13c31e2c46mshe091625ebaddd3ep1f6740jsnb6d721c89b72",
+      "x-rapidapi-host": process.env.REACT_APP_COIN_RANKING_HOST,
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY,
     },
   };
   try {

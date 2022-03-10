@@ -6,6 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
+import CurrencyBitcoinIcon from "@mui/icons-material/CurrencyBitcoin";
 
 function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ function MobileMenu() {
     }
   }, [isMenuOpen]);
   return (
-    <header className="mobile-menu">
+    <header className="mobile-menu" style={{ zIndex: "1" }}>
       <Box
         display="flex"
         justifyContent="space-between"
@@ -69,20 +70,11 @@ function MobileMenu() {
                 className="mobile-menu__link"
                 onClick={toggleMenu}
               >
-                <ShowChartIcon className="mobile-menu__icon" />
+                <CurrencyBitcoinIcon className="mobile-menu__icon" />
                 <span className="mobile-menu__text">Cryptocurrencies</span>
               </Link>
             </li>
-            <li className="mobile-menu__item">
-              <Link
-                to="/exchanges"
-                className="mobile-menu__link"
-                onClick={toggleMenu}
-              >
-                <CurrencyExchangeIcon className="mobile-menu__icon" />
-                <span className="mobile-menu__text">Exchanges</span>
-              </Link>
-            </li>
+
             <li className="mobile-menu__item">
               <Link
                 to="/news"

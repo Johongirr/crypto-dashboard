@@ -4,7 +4,11 @@ import Typography from "@mui/material/Typography";
 
 const CryptoStatsCardBox = styled("div")({
   backgroundColor: "#0c1a32",
-  boxShadow: "0 0 15px rgba(0,0,0,.1)",
+  boxShadow: "0 0 15px rgba(0, 0, 0, .2)",
+  transition: "all .5s ease-out",
+  "&:hover": {
+    transform: "scale(1.03)",
+  },
   width: "250px",
   marginBottom: "20px",
   padding: "20px",

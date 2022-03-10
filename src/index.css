@@ -116,11 +116,25 @@ span,a,input,button {
   margin-top: 50px;
 }
 
-.s {
-  color: #1c29415d;
+
+
+
+
+::-webkit-scrollbar {
+  width: 5px; /* Mostly for vertical scrollbars */
+  height: 10px; /* Mostly for horizontal scrollbars */
+
 }
 
- 
+::-webkit-scrollbar-thumb { /* Foreground */
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #0c1a32;
+}
+::-webkit-scrollbar-track { /* Background */
+  background: #20304c;
+}
 /* media queries */
 @media(min-width: 810px){
   .sidebar {

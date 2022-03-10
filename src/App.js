@@ -6,12 +6,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { styled } from "@mui/system";
 import Home from "./pages/Home/Home";
 import Cryptocurrencies from "./pages/Cryptocurrencies/Cryptocurrencies";
-import Exchanges from "./pages/Exchanges/Exchanges";
 import News from "./pages/News/News";
 
 const AppBox = styled("main")({
   padding: "30px 15px",
-  backgroundColor: "#0c1a32",
+
   backgroundColor: "#20304c",
   minHeight: "100vh",
   color: "#fff",
@@ -26,7 +25,6 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
-          <Route path="/exchanges" element={<Exchanges />} />
           <Route path="/news" element={<News />} />
           <Route path="/cryptocurrencies/:cryptoId" element={<Crypto />} />
         </Routes>

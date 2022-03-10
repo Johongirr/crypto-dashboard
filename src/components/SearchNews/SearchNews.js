@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Select, MenuItem } from "@mui/material";
 
 function SearchNews({ getSearchTerm }) {
-  const [val, setVal] = useState("");
+  const [val, setVal] = useState("cryptocurrency");
   return (
     <Select
       sx={{ width: "400px", backgroundColor: "#fff", marginTop: "20px" }}
       labelId="demo-simple-select-label"
       id="demo-simple-select"
+      displayEmpty
+      renderProps={() => val}
       value={val}
       label="Search For News"
       onChange={(e) => {
@@ -16,6 +18,7 @@ function SearchNews({ getSearchTerm }) {
       }}
     >
       <MenuItem value="bitcoin">Bitcoin</MenuItem>
+      <MenuItem value="cryptocurrency">Cryptocurrency</MenuItem>
       <MenuItem value="ethereum">Ethereum</MenuItem>
       <MenuItem value="altcoin">Altcoin</MenuItem>
       <MenuItem value="blockchain">Blockchain</MenuItem>

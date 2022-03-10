@@ -3,6 +3,7 @@ import Logo from "../../../images/crypto-log.png";
 import { styled } from "@mui/system";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
+import CryptoLogo from "../../../images/crypto.svg";
 
 const LogoBox = styled("div")({
   paddingLeft: "20px",
@@ -20,7 +21,7 @@ function SidebarLogo() {
     <LogoBox className="sidebar-logo__box">
       <SidebarImg
         width="40"
-        src={Logo}
+        src={CryptoLogo}
         alt="app logo"
         className="sidebar-logo__img"
       />

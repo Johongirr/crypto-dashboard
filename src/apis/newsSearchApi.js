@@ -12,8 +12,8 @@ export const getLatestCryptoNews = (method, q = "cryptocurrency") => {
     },
     headers: {
       "x-bingapis-sdk": "true",
-      "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-      "x-rapidapi-key": "13c31e2c46mshe091625ebaddd3ep1f6740jsnb6d721c89b72",
+      "x-rapidapi-host": process.env.REACT_APP_NEWS_SEARCH_HOST,
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY,
     },
   };
   axios

@@ -11,10 +11,11 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { DateTime } from "luxon";
+import moment from "moment";
 import { convertToMonetaryValue } from "../../../utils/converToMonetaryValue";
-
 import { Typography, Box } from "@mui/material";
+import ArrowDropDownUpIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowUpIcon from "@mui/icons-material/ArrowDropUp";
 
 ChartJS.register(
   CategoryScale,
@@ -51,13 +52,8 @@ function CryptoChart({ coinHistory, coinName, coinPrice, coinChange }) {
     };
     setOptions(options);
     setChartData({
-      labels: coinHistory?.history?.map((history) => {
-        let day = DateTime.now(history.timestamp).toJSDate().getDay();
-        let month = DateTime.now(history.timestamp).toJSDate().getMonth() + 1;
-        let year = DateTime.now(history.timestamp).toJSDate().getFullYear();
-        return `${day.toString().padStart(2, "0")}/${month
-          .toString()
-          .padStart(2, "0")}/${year}`;
+      labels: coinHistory?.history?.reverse()?.map((history) => {
+        return moment.unix(history.timestamp).format("MM/DD/YYYY");
       }),
       datasets: [
         {
@@ -65,27 +61,25 @@ function CryptoChart({ coinHistory, coinName, coinPrice, coinChange }) {
           data: coinHistory?.history?.map((history) => history.price),
           backgroundColor: "rgba(153, 102, 255,.1)",
           fill: true,
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-          ],
+          borderColor: ["pink"],
           borderWidth: 1,
+          color: "#fff",
         },
       ],
     });
-  }, []);
+  }, [coinHistory]);
   console.log("coinChart", coinHistory);
   return (
     <>
       <Box
-        display="flex"
-        justifyContent="space-between"
-        className="crypto-chart"
-        alignItems="center"
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          className: "crypto-chart",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "20px",
+        }}
         mt={2}
         mb={4}
       >

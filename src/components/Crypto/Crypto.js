@@ -8,11 +8,16 @@ import {
   CryptoInfo,
 } from "./index";
 import { fetchCoinHistory, getCoin } from "../../apis/coinRankingApi";
+import CircularProgress from "@mui/material/CircularProgress";
+import { Offline, Online, Detector } from "react-detect-offline";
+import { Typography, Button, Box } from "@mui/material";
+import OfflineUser from "../OfflineUser/OfflineUser";
 
 function Crypto() {
   const [coinHistory, setCoinHistory] = useState(null);
   const [coin, setCoin] = useState(null);
   const [coinHistoryDate, setCoinHistoryDate] = useState("24h");
+  const [isUserOnline, setIsUserOnline] = useState(false);
   const { cryptoId } = useParams();
   useEffect(() => {
     console.log(coinHistoryDate);
@@ -32,12 +37,21 @@ function Crypto() {
       `https://coinranking1.p.rapidapi.com/coin/${cryptoId}`,
       getSingleCoin
     );
-  }, [coinHistoryDate]);
+  }, [coinHistoryDate, isUserOnline]);
   const updateCoinHistoryPeriod = (val) => setCoinHistoryDate(val);
 
   // console.log(coinHistory, coin);
   return (
-    <div className="crypto" style={{ padding: "0 25px" }}>
+    <div
+      className="crypto"
+      style={{ position: "relative", padding: "0 25px", minHeight: "100vh" }}
+    >
+      <Detector
+        render={({ online }) => {
+          online ? setIsUserOnline(true) : setIsUserOnline(false);
+          return <p></p>;
+        }}
+      />
       {coin && coinHistory ? (
         <>
           <CryptoHeader coin={coin} />
@@ -56,7 +70,20 @@ function Crypto() {
           />
         </>
       ) : (
-        <p>Loading...</p>
+        <>
+          <Online>
+            <CircularProgress
+              sx={{
+                position: "absolute",
+                top: { xs: "35%", sm: "40%" },
+                left: { xs: "40%", sm: "50%" },
+
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+          </Online>
+          <OfflineUser />
+        </>
       )}
     </div>
   );
@@ -72,6 +99,4 @@ export default Crypto;
  *    CryptoStats
  *    CryptoInfo
  *    CryptoLinks
- *
- *
  */

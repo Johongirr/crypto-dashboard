@@ -9,6 +9,8 @@ const CryptoListHeader = styled("header")({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
+  flexWrap: "wrap",
+  gap: "20px",
 });
 
 function CryptoList({ coins, cryptoCurrencyPage, userVal }) {
@@ -19,7 +21,11 @@ function CryptoList({ coins, cryptoCurrencyPage, userVal }) {
       {!cryptoCurrencyPage && (
         <>
           <CryptoListHeader className="crypto-list__header">
-            <Typography variant="h4" component="h2">
+            <Typography
+              variant="h4"
+              sx={{ fontSize: { xs: "1.8rem", sm: "2.5rem" } }}
+              component="h2"
+            >
               Top 10 Cryptos In The World
             </Typography>
             <Link
@@ -44,9 +50,13 @@ function CryptoList({ coins, cryptoCurrencyPage, userVal }) {
           ).length < 1 ? (
             <Typography
               variant="h3"
-              sx={{ textAlign: "center", margin: "0 auto" }}
+              sx={{
+                textAlign: "center",
+                margin: "0 auto",
+                fontSize: { xs: "2rem", sm: "2.5rem" },
+              }}
             >
-              There are No Matches
+              There are (0) Matches
             </Typography>
           ) : (
             coins

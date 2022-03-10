@@ -6,6 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
+import CurrencyBitcoinIcon from "@mui/icons-material/CurrencyBitcoin";
 
 const AppSidebar = styled("aside")({
   backgroundColor: "rgb(0, 21, 41)",
@@ -29,12 +30,7 @@ function Sidebar() {
       <SidebarItem
         route="/cryptocurrencies"
         text="Cryptocurrencies"
-        icon={<ShowChartIcon className="sidebar__icon" />}
-      />
-      <SidebarItem
-        route="/exchanges"
-        text="Exchanges"
-        icon={<CurrencyExchangeIcon className="sidebar__icon" />}
+        icon={<CurrencyBitcoinIcon className="sidebar__icon" />}
       />
       <SidebarItem
         route="/news"

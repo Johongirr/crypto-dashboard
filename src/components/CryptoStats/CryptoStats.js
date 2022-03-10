@@ -8,7 +8,11 @@ function CryptoStats({ stats }) {
   return (
     <div className="crypto-stats">
       <header className="crypto-stats__header">
-        <Typography variant="h3" component="h2">
+        <Typography
+          variant="h4"
+          component="h2"
+          sx={{ fontSize: { xs: "1.8rem", sm: "2.5rem" } }}
+        >
           Global Cryptocurrency Statistics
         </Typography>
       </header>

@@ -48,7 +48,7 @@ function LatestCryptoNewsItem({ news }) {
               <Typography mb={3} color="gray">
                 Published at:{" "}
                 {DateTime.fromISO(news.datePublished).toFormat(
-                  "yyyy LLL dd hh:mm:ss"
+                  "yyyy-LL-dd hh:mm:ss"
                 )}
               </Typography>
               <Button variant="contained">Read More</Button>
