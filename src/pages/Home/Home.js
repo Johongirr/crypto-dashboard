@@ -32,7 +32,7 @@ function Home() {
         <>
           <CryptoStats stats={cryptoCurrencies.stats} />
           <CryptoList coins={cryptoCurrencies.coins} />
-          {/* <LatestCryptoNewsList news={news} /> */}
+          <LatestCryptoNewsList news={news} />
         </>
       ) : (
         <CircularProgress
